@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html> 
+ <head>
+    <title>Template for Websites</title> 
+</head>
+ <body>
+    <p align="center"> 
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(600, 600); 
+        frameRate(60);
+//mole and explosion{
+var mole = [[-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16777216,-16777216,-16777216,-16777216,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936],[-16777216,-16777216,-16777216,-16711936,-16777216,-16777216,-3566247,-3566247,-3566247,-3566247,-16777216,-16777216,-16711936,-16777216,-16777216,-16777216],[-16777216,-11069418,-11069418,-16777216,-11069418,-3566247,-16777216,-3566247,-3566247,-16777216,-3566247,-11069418,-16777216,-11069418,-11069418,-16777216],[-16777216,-11069418,-3566247,-16777216,-3566247,-3566247,-3566247,-3566247,-3566247,-3566247,-3566247,-3566247,-16777216,-3566247,-11069418,-16777216],[-16777216,-3566247,-3566247,-3566247,-3566247,-3566247,-1,-16777216,-16777216,-1,-3566247,-3566247,-3566247,-3566247,-3566247,-16777216],[-16777216,-11069418,-3566247,-11069418,-16777216,-1,-1,-1,-1,-1,-1,-16777216,-11069418,-3566247,-11069418,-16777216],[-16711936,-16777216,-3566247,-3566247,-16777216,-1,-1,-16777216,-16777216,-1,-1,-16777216,-3566247,-3566247,-16777216,-16711936],[-16711936,-16777216,-3566247,-3566247,-3566247,-16777216,-16777216,-1,-1,-16777216,-16777216,-3566247,-3566247,-3566247,-16777216,-16711936],[-16711936,-16711936,-16777216,-3566247,-1,-1,-1,-1,-1,-1,-1,-1,-3566247,-16777216,-16711936,-16711936],[-16711936,-16711936,-16777216,-3566247,-1,-1,-1,-1,-1,-1,-1,-1,-3566247,-16777216,-16711936,-16711936],[-16777216,-16777216,-16777216,-3566247,-1,-1,-1,-1,-1,-1,-1,-1,-3566247,-16777216,-16777216,-16777216],[-16777216,-16777216,-11069418,-3566247,-3566247,-1,-1,-1,-1,-1,-1,-3566247,-3566247,-11069418,-16777216,-16777216],[-16777216,-16777216,-16777216,-3566247,-3566247,-3566247,-1,-1,-1,-1,-3566247,-3566247,-3566247,-16777216,-16777216,-16777216],[-16711936,-16777216,-16777216,-16777216,-3566247,-16777216,-11069418,-11069418,-11069418,-11069418,-16777216,-3566247,-16777216,-16777216,-16777216,-16711936],[-16711936,-16711936,-16777216,-16777216,-16777216,-16711936,-16777216,-11069418,-11069418,-16777216,-16711936,-16777216,-16777216,-16777216,-16711936,-16711936],[-16711936,-16711936,-16711936,-16777216,-16777216,-16711936,-16711936,-16777216,-16777216,-16711936,-16711936,-16777216,-16777216,-16711936,-16711936,-16711936]];
+var explosion = [[-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936],[-16711936,-16711936,-16711936,-16711936,-16711936,-65536,-65536,-65536,-65536,-65536,-65536,-16711936,-16711936,-16711936,-16711936,-16711936],[-16711936,-16711936,-16711936,-65536,-65536,-31744,-31744,-31744,-31744,-31744,-31744,-65536,-65536,-16711936,-16711936,-16711936],[-16711936,-16711936,-65536,-31744,-256,-31744,-31744,-256,-256,-31744,-31744,-256,-31744,-65536,-16711936,-16711936],[-16711936,-16711936,-65536,-256,-31744,-31744,-256,-256,-256,-256,-31744,-31744,-256,-65536,-16711936,-16711936],[-16711936,-65536,-31744,-31744,-31744,-256,-256,-256,-256,-256,-256,-31744,-31744,-31744,-65536,-16711936],[-16711936,-65536,-31744,-31744,-256,-256,-256,-1,-1,-256,-256,-256,-31744,-31744,-65536,-16711936],[-16711936,-65536,-31744,-256,-256,-256,-1,-1,-1,-1,-256,-256,-256,-31744,-65536,-16711936],[-16711936,-65536,-31744,-256,-256,-256,-1,-1,-1,-1,-256,-256,-256,-31744,-65536,-16711936],[-16711936,-65536,-31744,-31744,-256,-256,-256,-1,-1,-256,-256,-256,-31744,-31744,-65536,-16711936],[-16711936,-65536,-31744,-31744,-31744,-256,-256,-256,-256,-256,-256,-31744,-31744,-31744,-65536,-16711936],[-16711936,-16711936,-65536,-256,-31744,-31744,-256,-256,-256,-256,-31744,-31744,-256,-65536,-16711936,-16711936],[-16711936,-16711936,-65536,-31744,-256,-31744,-31744,-256,-256,-31744,-31744,-256,-31744,-65536,-16711936,-16711936],[-16711936,-16711936,-16711936,-65536,-65536,-31744,-31744,-31744,-31744,-31744,-31744,-65536,-65536,-16711936,-16711936,-16711936],[-16711936,-16711936,-16711936,-16711936,-16711936,-65536,-65536,-65536,-65536,-65536,-65536,-16711936,-16711936,-16711936,-16711936,-16711936],[-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936,-16711936]];
+//}
+angleMode = "degrees";
+var sc = 5;
+background(0, 0);
+for(var i = 0; i < mole.length; i++){
+    for(var j = 0; j < mole.length; j++){
+        fill(mole[j][i]);
+        stroke(mole[j][i]);
+        if(mole[j][i] === color(0, 255, 0)){
+            fill(255, 0);
+            stroke(255, 0);
+        }
+        rect(i*sc, j*sc, sc, sc);
+    }
+}   
+    var m = get(0, 0, mole.length*sc, mole.length*sc);
+
+
+var sc = 5;
+background(0, 0);
+for(var i = 0; i < explosion.length; i++){
+    for(var j = 0; j < explosion.length; j++){
+        fill(explosion[j][i]);
+        stroke(explosion[j][i]);
+        if(explosion[j][i] === color(0, 255, 0)){
+            fill(255, 0);
+            stroke(255, 0);
+        }
+        rect(i*sc, j*sc, sc, sc);
+    }
+}   
+    var e = get(0, 0, explosion.length*sc, explosion.length*sc);
+    
+var points = 0;
+var deathsC = 23;
+function Mole(){
+  this.pos = new PVector(width/2+random(-width/8, width/8), height/2+random(-height/8, height/8));
+  this.vel = new PVector(random(map(points, 0, 60, -5, -7), map(points, 0, 60, 5, 7)), random(map(points, 0, 60, 5, 7), map(points, 0, 60, -5, -7)));
+  
+  this.life = 70;
+  this.r = random(360);
+  this.m = m;
+  this.e = e;
+  this.t = 0;
+  this.tb = false;
+  this.run = function(){
+    this.update();
+    this.display();
+  };
+  this.update = function(){
+    this.pos.add(this.vel);
+    this.life-=0.5;
+    this.r%=360;
+    this.r++;
+    if(this.tb){
+        this.t ++;
+    }
+  };
+  this.display = function(){
+    pushMatrix();
+        translate(this.pos.x+(16*5)/2, this.pos.y+(16*5)/2);
+        rotate(this.r);
+        if(this.click()){
+        } else {
+        image(this.m, 0, 0);   
+        }
+        if(this.tb){
+            image(this.e, 0, 0);
+        }
+    popMatrix();
+  };
+   this.isDead = function(){
+    if (this.life < 0 || this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0) {
+        return true;
+    } else {
+        return false;
+    }
+   };
+   this.mt = function(){
+    
+   };
+   this.click = function(){
+        if(mouseIsPressed && ((this.r > 0 && this.r <= 90 && mouseX >= this.pos.x-16*2.5 && mouseX <= this.pos.x-16*2.5+16*10 && mouseY >= this.pos.y+16*2.5 && mouseY <= this.pos.y+16*2.5+16*5) || (this.r > 90 && this.r <= 180 && mouseX >= this.pos.x-(16*2.5) && mouseX <= this.pos.x-(16*2.5)+16*5 && mouseY >= this.pos.y-(16*2.5) && mouseY <= this.pos.y-(16*2.5)+16*10) || (this.r > 180 && this.r <= 270 && mouseX >= this.pos.x-16*2.5 && mouseX <= this.pos.x-16*2.5+16*10 && mouseY >= this.pos.y-16*2.5 && mouseY <= this.pos.y-16*2.5+16*5) || (this.r > 270 && this.r <= 360 && mouseX >= this.pos.x+(16*2.5) && mouseX <= this.pos.x+(16*2.5)+16*5 && mouseY >= this.pos.y-(16*2.5) && mouseY <= this.pos.y-(16*2.5)+16*10))){
+        this.tb = true;
+    } 
+   };
+}
+function Moles() {
+  this.origin = Mole.pos;
+  this.moles = [];
+  
+  this.addMole = function(){
+        this.moles.push(new Mole(this.origin));
+  };
+  this.run = function(){
+	for (var i = this.moles.length-1; i >= 0; i--) {
+        var mo = this.moles[i];
+        mo.run();
+        if(mo.isDead()) {
+          this.moles.splice(i, 1);
+          deathsC--;
+        }
+        if(mo.t > 5) {
+          this.moles.splice(i, 1);
+          points++;
+        }
+	}
+  };
+}
+var moleSystem = new Moles(new PVector(width/2, 0));
+var scene = "home";
+var moleSystem = new Moles();
+draw = function() {
+        background(0, 0, 0);
+            fill(255);
+            ellipse(random(width), random(height), 10, 10);
+    if(scene === "home"){
+        var shakiness = 3;
+        var t1 = "whack a mol";
+        t1 = t1.split("");
+        textFont(createFont("Trebuchet MS"), 100);
+        textAlign(CENTER, CENTER);
+        for(var i = 0; i < t1.length; i++){
+            fill(255, random(255)*2);
+            text(t1[i], i*(width/t1.length/1.15)+70+random(-shakiness, shakiness), height/4+random(-shakiness, shakiness));
+        }
+        fill(255);
+        if(mouseX >= width/2-200/2 && mouseX <= width/2-200/2+200 && mouseY >= height/2+75/2 && mouseY <= height/2+75/2+75){
+            fill(175);
+        }
+        rect(width/2-200/2, height/2+75/2, 200, 75);
+        var t2 = "start";
+        t2 = t2.split("");
+        textSize(80);
+        textAlign(CENTER, CENTER);
+        for(var i = 0; i < t2.length; i++){
+            fill(0, random(255)*2);
+            text(t2[i], 232+i*33+random(-shakiness, shakiness), height/2+73+random(-shakiness, shakiness));
+        }
+    }
+    if(scene === "game"){
+        if(frameCount%40===0){
+            moleSystem.addMole();
+        }
+        moleSystem.run();
+        fill(255);
+        textFont(createFont("Trebuchet MS"), 30);
+        textAlign(LEFT, TOP);
+        text("Lives Left: " + deathsC, 0, 0);
+        fill(255);
+        textFont(createFont("Trebuchet MS"), 30);
+        textAlign(RIGHT, TOP);
+        text("Moles Demolished: " + points + "/60.22", width, 0);
+        if(points > 60){
+            scene = "win";
+            moleSystem.moles = [];
+        } 
+        if(deathsC <= 0){
+            moleSystem.moles = [];
+            scene = "lose";
+        }
+    }
+    if(scene === "lose"){
+        var shakiness = 3;
+        var t1 = "you lost ):";
+        t1 = t1.split("");
+        textFont(createFont("Trebuchet MS"), 100);
+        textAlign(CENTER, CENTER);
+        for(var i = 0; i < t1.length; i++){
+            fill(255, 0, 0, random(255)*1.5);
+            text(t1[i], i*(width/t1.length/1.15)+70+random(-shakiness, shakiness), height/4+random(-shakiness, shakiness));
+        }
+        
+        var t3 = "score: " + String(points);
+        t3 = t3.split("");
+        textFont(createFont("Trebuchet MS"), 75);
+        textAlign(CENTER, CENTER);
+        for(var i = 0; i < t1.length; i++){
+            fill(255, random(255)*2);
+            text(t3[i], i*(width/t1.length/1.4)+70+random(-shakiness, shakiness), height/2.3+random(-shakiness, shakiness));
+        }
+        
+        fill(255);
+        if(mouseX >= width/2-200/2 && mouseX <= width/2-200/2+200 && mouseY >= height/2+75/2 && mouseY <= height/2+75/2+75){
+            fill(175);
+        }
+        rect(width/2-200/2, height/2+75/2, 200, 75);
+        var t2 = "try again?";
+        t2 = t2.split("");
+        textSize(50);
+        textAlign(CENTER, CENTER);
+        for(var i = 0; i < t2.length; i++){
+            fill(0, random(255)*2);
+            text(t2[i], 218+i*19+random(-shakiness, shakiness), height/2+73+random(-shakiness, shakiness));
+        }
+    }
+    if(scene === "win"){
+        var shakiness = 3;
+        var t1 = "you won! (:";
+        t1 = t1.split("");
+        textFont(createFont("Trebuchet MS"), 100);
+        textAlign(CENTER, CENTER);
+        for(var i = 0; i < t1.length; i++){
+            fill(30, 255, 30, random(255)*1.5);
+            text(t1[i], i*(width/t1.length/1.15)+70+random(-shakiness, shakiness), height/4+random(-shakiness, shakiness));
+        }
+        
+        var t3 = "score: " + String(points);
+        t3 = t3.split("");
+        textFont(createFont("Trebuchet MS"), 75);
+        textAlign(CENTER, CENTER);
+        for(var i = 0; i < t1.length; i++){
+            fill(255, random(255)*2);
+            text(t3[i], i*(width/t1.length/1.4)+70+random(-shakiness, shakiness), height/2.3+random(-shakiness, shakiness));
+        }
+        
+        fill(255);
+        if(mouseX >= width/2-200/2 && mouseX <= width/2-200/2+200 && mouseY >= height/2+75/2 && mouseY <= height/2+75/2+75){
+            fill(175);
+        }
+        rect(width/2-200/2, height/2+75/2, 200, 75);
+        var t2 = "try again?";
+        t2 = t2.split("");
+        textSize(50);
+        textAlign(CENTER, CENTER);
+        for(var i = 0; i < t2.length; i++){
+            fill(0, random(255)*2);
+            text(t2[i], 218+i*19+random(-shakiness, shakiness), height/2+73+random(-shakiness, shakiness));
+        }
+    }
+};
+ var mouseClicked = function(){
+    if(mouseX >= width/2-200/2 && mouseX <= width/2-200/2+200 && mouseY >= height/2+75/2 && mouseY <= height/2+75/2+75 && scene === "home"){
+        scene = "game";
+    }
+    if(mouseX >= width/2-200/2 && mouseX <= width/2-200/2+200 && mouseY >= height/2+75/2 && mouseY <= height/2+75/2+75 && scene === "lose"){
+        deathsC = 23;
+        points = 0;
+        scene = "game";
+    }
+    if(mouseX >= width/2-200/2 && mouseX <= width/2-200/2+200 && mouseY >= height/2+75/2 && mouseY <= height/2+75/2+75 && scene === "win"){
+        deathsC = 23;
+        points = 0;
+        scene = "game";
+    }
+};
+
+
+
+
+    }};
+
+    var canvas = document.getElementById("mycanvas"); 
+
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>

@@ -72,8 +72,8 @@ function Mole(){
   this.update = function(){
     this.pos.add(this.vel);
     this.life-=0.5;
-    this.r%=360;
-    this.r++;
+    this.r%=2*PI;
+    this.r+=PI/180;
     if(this.tb){
         this.t ++;
     }
@@ -102,7 +102,7 @@ function Mole(){
     
    };
    this.click = function(){
-        if(mousePressed && ((this.r > 0 && this.r <= 90 && mouseX >= this.pos.x-16*2.5 && mouseX <= this.pos.x-16*2.5+16*10 && mouseY >= this.pos.y+16*2.5 && mouseY <= this.pos.y+16*2.5+16*5) || (this.r > 90 && this.r <= 180 && mouseX >= this.pos.x-(16*2.5) && mouseX <= this.pos.x-(16*2.5)+16*5 && mouseY >= this.pos.y-(16*2.5) && mouseY <= this.pos.y-(16*2.5)+16*10) || (this.r > 180 && this.r <= 270 && mouseX >= this.pos.x-16*2.5 && mouseX <= this.pos.x-16*2.5+16*10 && mouseY >= this.pos.y-16*2.5 && mouseY <= this.pos.y-16*2.5+16*5) || (this.r > 270 && this.r <= 360 && mouseX >= this.pos.x+(16*2.5) && mouseX <= this.pos.x+(16*2.5)+16*5 && mouseY >= this.pos.y-(16*2.5) && mouseY <= this.pos.y-(16*2.5)+16*10))){
+        if(mousePressed && ((this.r > 0 && this.r <= PI/2 && mouseX >= this.pos.x-16*2.5 && mouseX <= this.pos.x-16*2.5+16*10 && mouseY >= this.pos.y+16*2.5 && mouseY <= this.pos.y+16*2.5+16*5) || (this.r > PI/2 && this.r <= PI && mouseX >= this.pos.x-(16*2.5) && mouseX <= this.pos.x-(16*2.5)+16*5 && mouseY >= this.pos.y-(16*2.5) && mouseY <= this.pos.y-(16*2.5)+16*10) || (this.r > PI && this.r <= (3/2)*PI && mouseX >= this.pos.x-16*2.5 && mouseX <= this.pos.x-16*2.5+16*10 && mouseY >= this.pos.y-16*2.5 && mouseY <= this.pos.y-16*2.5+16*5) || (this.r > (3/2)*PI && this.r <= 2*PI && mouseX >= this.pos.x+(16*2.5) && mouseX <= this.pos.x+(16*2.5)+16*5 && mouseY >= this.pos.y-(16*2.5) && mouseY <= this.pos.y-(16*2.5)+16*10))){
         this.tb = true;
     } 
    };
